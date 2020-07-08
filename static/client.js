@@ -2,6 +2,7 @@ const id = (eid) => {
     return document.getElementById(eid);
 };
 window.onload = () => {
+    if (window.parent != window) return document.body.innerHTML = `<div>Hey, you can't use this in an iFrame or similar embedded element [e.g. in the repl.it editor window].</div><br /><a href="/" target="_blank">Click here to open this tab in a new window.</a>`
     id("mbody").innerText = "Connecting...";
     let url = new URL(window.location);
     url.protocol = url.protocol.replace("http", "ws");
