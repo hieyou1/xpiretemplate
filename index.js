@@ -92,6 +92,17 @@ rl.on("line", (raw) => {
                             mcexec = await mcexec();
                             ws.sendJSON("rcon");
                             ws.fromNode("RCON connected! You can now send commands using the text box below.");
+                            if (!process.env.adblock) {
+                                setInterval(() => {
+                                    try {
+                                        mcexec(`tellraw @a ["",{"text":"[Advertisement] ","bold":true,"color":"gold"},{"text":"Do YOU want to create a ","color":"green"},{"text":"XPIRE ","color":"aqua"},{"text":"server? Click ","color":"green"},{"text":"here","bold":true,"underlined":true,"color":"blue","clickEvent":{"action":"open_url","value":"https://bit.ly/3gJNEbb"}},{"text":" to learn how to do it!","color":"green"}]`);
+                                        mcexec(`title @a title ["",{"text":"New Ad In Chat!","bold":true,"italic":true,"underlined":true,"color":"gold"}]`);
+                                        mcexec(`title @a subtitle ["",{"text":"Check chat to learn about it!","bold":true,"italic":true,"underlined":true,"color":"dark_aqua"}]`);
+                                    } catch (err) {
+                                        process.exit(0);
+                                    }
+                                }, 30000);
+                            }
                             return true;
                         } else return false;
                     };

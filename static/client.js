@@ -42,15 +42,31 @@ window.onload = () => {
             }
             case "rcon": {
                 id("consolecmd").hidden = false;
+                var numArrow = 0;
+                var upArrow = [];
+                var firstTime = true;
                 id("mcinp").onkeyup = (e) => {
                     if (e.key.toLowerCase() == "enter") {
                         let cmd = id("mcinp").value;
                         id("mcinp").value = "";
                         let elem = document.createElement("div");
                         elem.className = "cmd";
-                        elem.innerText = cmd;
+                        elem.innerText = "/".concat(cmd);
                         id("msgs").appendChild(elem);
                         ws.sendJSON("cmd", cmd);
+                        upArrow.push(cmd);
+                        numArrow = 0;
+                        firstTime = true;
+                    } else if (e.key.toLowerCase() == "arrowup") {
+                        if (numArrow == 0 && firstTime) {
+                            upArrow.push(cmd);
+                            firstTime = false;
+                        }
+                        numArrow++;
+                        id("mcinp").value = upArrow[upArrow.length - numArrow];
+                    } else if (e.key.toLowerCase() == "arrowdown") {
+                        numArrow--;
+                        id("mcinp").value = upArrow[upArrow.length - numArrow];
                     }
                 };
                 break;
