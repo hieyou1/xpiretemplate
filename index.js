@@ -1,4 +1,4 @@
-const REPL = false;
+const REPL = true;
 
 var cache = [];
 const uncolor = require("uncolor");
