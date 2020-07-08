@@ -59,7 +59,7 @@ window.onload = () => {
                         firstTime = true;
                     } else if (e.key.toLowerCase() == "arrowup") {
                         if (numArrow == 0 && firstTime) {
-                            upArrow.push(cmd);
+                            upArrow.push(id("mcinp").value);
                             firstTime = false;
                         }
                         numArrow++;
