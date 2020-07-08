@@ -12,6 +12,7 @@ let rl = Readline.createInterface({
 });
 rl.on("line", (raw) => {
     let chunk = chunk2String(raw);
+    if (chunk.trim() == ">") return;
     if (!tosrv) cache.push(chunk);
     else tosrv(chunk);
 });
