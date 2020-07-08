@@ -61,11 +61,12 @@ window.onload = () => {
                         if (numArrow == 0 && firstTime) {
                             upArrow.push(id("mcinp").value);
                             firstTime = false;
-                        }
+                        } else if (upArrow.length - numArrow < 0) return;
                         numArrow++;
                         id("mcinp").value = upArrow[upArrow.length - numArrow];
                     } else if (e.key.toLowerCase() == "arrowdown") {
                         numArrow--;
+                        if (numArrow < 0) numArrow = 0;
                         id("mcinp").value = upArrow[upArrow.length - numArrow];
                     }
                 };
