@@ -27,6 +27,7 @@ window.onload = () => {
                 elem.className = msg.data.from;
                 elem.innerText = msg.data.data;
                 id("msgs").appendChild(elem);
+                scrollTo(0,document.body.scrollHeight);
                 break;
             }
             case "cache": {
@@ -35,6 +36,7 @@ window.onload = () => {
                     elem.className = "mc";
                     elem.innerText = i;
                     id("msgs").appendChild(elem);
+                    scrollTo(0,document.body.scrollHeight);
                 }
                 break;
             }
