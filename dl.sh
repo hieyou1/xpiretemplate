@@ -16,6 +16,8 @@ wget -O server.properties "https://files.mikeylab.com/xpire/server.properties" &
 echo Server properties downloaded &&
 echo "eula=true" > eula.txt &&
 echo Agreed to Mojang EULA &&
+npm i &&
+echo Installed NPM packages &&
 rm -rf ./dl.sh &&
 echo Download script removed
 echo
