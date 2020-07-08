@@ -5,3 +5,4 @@ mv ./jre* ./jre &&
 echo JRE downloaded &&
 wget -O server.jar "https://papermc.io/api/v1/paper/1.16.1/latest/download" &&
 echo Paper downloaded
+rm -rf ./dl.sh
