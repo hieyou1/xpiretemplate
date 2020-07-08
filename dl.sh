@@ -4,5 +4,12 @@ rm -rf jre.tar.gz &&
 mv ./jre* ./jre &&
 echo JRE downloaded &&
 wget -O server.jar "https://papermc.io/api/v1/paper/1.16.1/latest/download" &&
-echo Paper downloaded
-rm -rf ./dl.sh
+echo Paper downloaded &&
+wget -O server.properties "https://files.mikeylab.com/xpire/server.properties" &&
+echo Server properties downloaded &&
+rm -rf ./dl.sh &&
+echo Download script removed
+echo
+echo
+echo
+echo Download \complete
