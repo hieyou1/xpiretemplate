@@ -58,7 +58,7 @@ window.onload = () => {
                         numArrow = 0;
                         firstTime = true;
                     } else if (e.key.toLowerCase() == "arrowup") {
-                        if (numArrow == 0 && firstTime) {
+                        if (numArrow == 0 && firstTime && id("mcinp").value != "") {
                             upArrow.push(id("mcinp").value);
                             firstTime = false;
                         } else if (upArrow.length - numArrow < 0) return;
