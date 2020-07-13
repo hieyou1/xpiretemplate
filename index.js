@@ -122,7 +122,7 @@ rl.on("line", (raw) => {
                     break;
                 }
                 case "cmd": {
-                    mcexec(msg.data);
+                    if (msg.data) mcexec(msg.data);
                     break;
                 }
                 default: {
